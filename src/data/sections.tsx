@@ -7,7 +7,7 @@ const projects = [
     description: "App para monitoramento remoto da temperatura em salas de servidores, com acesso de qualquer lugar.",
     tech: [
       { name: "TypeScript", color: "blue" },
-      { name: "React", color: "cyan" },
+      { name: "JavaScript", color: "yellow" },
       { name: "CSS", color: "purple" },
     ],
     link: "https://github.com/VictorBritto/systemTCC"
