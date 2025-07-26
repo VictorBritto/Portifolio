@@ -67,7 +67,7 @@ const App = () => {
                   onAnimationComplete={() => setShowFooter(true)}
                 >
                   <Routes location={location}>
-                    <Route path="/Home" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/contact" element={<Contact />} />
                     {/* <Route path="/gallery" element={<Gallery />} /> */}
                   </Routes>

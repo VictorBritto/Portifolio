@@ -16,7 +16,7 @@ const Navbar = () => {
   }, [location]);
 
   const navItems = [
-    { path: '/home', label: 'Inicio' },
+    { path: '/', label: 'Inicio' },
     { path: '/contact', label: 'Contato' },
   ];
 
@@ -27,7 +27,7 @@ const Navbar = () => {
       <nav className="container-width py-4">
         <div className="flex items-center justify-between">
           {/* Added Logo/Icon */}
-          <Link to="Home" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
               src={Icon} 
               alt="Victor Gabriel" 

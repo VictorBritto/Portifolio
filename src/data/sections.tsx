@@ -22,7 +22,7 @@ const projects = [
       { name: "HTML", color: "red" },
       
     ],
-    link: "https://github.com/VictorBritto/systemTCC"
+    link: "https://github.com/VictorBritto/CloneApple"
   },
 ];
 

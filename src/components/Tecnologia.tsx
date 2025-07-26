@@ -25,9 +25,8 @@ const techs = [
 
 export function Tecnologia() {
   return (
-    <div className=" py-10 px-4">
-      <h1 className="text-2xl font-bold text-white text-center mb-10">TECNOLOGIAS</h1>
-      
+  <div className=" py-10 px-4">
+      <h1 className="text-2xl font-bold  text-center mb-10">TECNOLOGIAS</h1>    
     <Swiper
         grabCursor={true}
         centeredSlides={true}
