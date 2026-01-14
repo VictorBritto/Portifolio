@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
 
   usePageTitle('Home');
-  
+
 
   return (
     <div>
@@ -50,12 +50,13 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            Sou um desenvolvedor apaixonado por tecnologia, inovação e aprendizado contínuo.
-            Cursando Sistemas de Informação, estou pronto para iniciar minha carreira aplicando na prática os conhecimentos adquiridos, 
-            com foco em soluções criativas e eficientes.
+            Sou um desenvolvedor movido por tecnologia, inovação e aprendizado contínuo.
+            Com experiência em TypeScript, React e Dart, trabalho do código ao design para transformar ideias em soluções digitais completas.
+            Tenho foco em funcionalidade, estética e experiência do usuário, garantindo produtos úteis e envolventes.
+            Estou pronto para dar o próximo passo na carreira e contribuir com resultados criativos, eficientes e de alto impacto.
           </motion.p>
         </section>
-      </FadeInSection>      
+      </FadeInSection>
 
       <FadeInSection delay={0.2}>
         <PhotoGallery isMobile={isMobile} />
@@ -69,9 +70,9 @@ const Home = () => {
       <FadeInSection delay={0.4}>
         <HomeSection />
       </FadeInSection>
-      
+
     </div>
-    
+
   );
 };
 

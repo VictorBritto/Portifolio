@@ -26,6 +26,6 @@ export const photos = [
     image: foto4,
     date: "Julho 2025",
     location: "Araras, SP",
-    style: "top-[10%] left-[70%] rotate-[5deg] z-40",
+    style: "top-[10%] left-[77%] rotate-[5deg] z-40",
   },
 ];
