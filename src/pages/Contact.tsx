@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { FadeInSection } from '../utils/FadeInSection';
 import { getCalApi } from "@calcom/embed-react";
@@ -10,8 +10,8 @@ const Contact = () => {
 
   const cardHoverVariants = {
     initial: { scale: 1, y: 0 },
-    hover: { 
-      scale: 1.02, 
+    hover: {
+      scale: 1.02,
       y: -2,
       transition: {
         duration: 0.2,
@@ -22,8 +22,8 @@ const Contact = () => {
 
   const iconHoverVariants = {
     initial: { scale: 1, rotate: 0 },
-    hover: { 
-      scale: 1.1, 
+    hover: {
+      scale: 1.1,
       rotate: 5,
       transition: {
         duration: 0.2,
@@ -42,15 +42,32 @@ const Contact = () => {
         }
       });
     })();
+
+    const moveCursor = (e: MouseEvent) => {
+      const x = e.clientX - 16;
+      const y = e.clientY - 16;
+
+      cursorX.set(x);
+      cursorY.set(y);
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+    }
   }, [selectedEvent]);
 
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+
   return (
-    <div>
+    <div style={{ cursor: 'none' }}>
       <FadeInSection>
-        <motion.h1 className="text-3xl font-bold">
+        <motion.h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Contato
         </motion.h1>
-        <motion.p className="text-sm sm:text-base leading-relaxed mb-6">
+        <motion.p className="text-sm sm:text-base leading-relaxed mb-6 text-gray-600 dark:text-gray-300">
           Vamos nos conectar.
         </motion.p>
       </FadeInSection>
@@ -60,7 +77,7 @@ const Contact = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Entre em contato comigo por meio de qualquer uma dessas plataformas.
           </p>
-          
+
           <div className="grid grid-cols-2 gap-3">
             <motion.a
               href="mailto:victor.gbiel2003@gmail.com"
@@ -70,7 +87,7 @@ const Contact = () => {
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex-shrink-0"
                 variants={iconHoverVariants}
               >
@@ -95,7 +112,7 @@ const Contact = () => {
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex-shrink-0"
                 variants={iconHoverVariants}
               >
@@ -119,7 +136,7 @@ const Contact = () => {
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex-shrink-0"
                 variants={iconHoverVariants}
               >
@@ -135,7 +152,25 @@ const Contact = () => {
           </div>
         </div>
       </FadeInSection>
+      <motion.div
+        className="custom-cursor"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: `20px`,
+          height: `20px`,
+          borderRadius: '50%',
+          pointerEvents: 'none',
+          zIndex: 9999,
+          x: cursorX,
+          y: cursorY,
+          mixBlendMode: 'difference',
+          backgroundColor: 'white',
+        }}
+      ></motion.div>
     </div>
+
   );
 };
 

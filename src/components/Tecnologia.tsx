@@ -25,20 +25,20 @@ const techs = [
 
 export function Tecnologia() {
   return (
-  <div className=" py-10 px-4">
-      <h1 className="text-2xl font-bold  text-center mb-10">TECNOLOGIAS</h1>    
-    <Swiper
+    <div className=" py-10 px-4">
+      <h1 className="text-2xl font-bold text-center mb-10 text-gray-900 dark:text-white">TECNOLOGIAS</h1>
+      <Swiper
         grabCursor={true}
         centeredSlides={true}
         loop={true}
         autoplay={{
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
         }}
         speed={1900}
         slidesPerView={window.innerWidth < 640 ? 2 : 3}
-        modules={[ Autoplay ]}
+        modules={[Autoplay]}
         className="max-w-5xl mx-auto"
       >
 

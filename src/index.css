@@ -10,10 +10,15 @@
   }
 
   body {
-    @apply antialiased text-sm text-gray-600 dark:text-gray-300;
+    @apply antialiased text-sm text-gray-600 dark:text-gray-300 bg-white dark:bg-black;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-gray-900 dark:text-white font-medium tracking-tight;
   }
 
@@ -40,8 +45,7 @@
   }
 
   .card {
-    @apply 
-    transition-all duration-200;
+    @apply transition-all duration-200;
   }
 }
 
@@ -50,6 +54,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -69,4 +74,20 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
-} 
+}
+
+* {
+  cursor: none;
+}
+
+input,
+button,
+textarea,
+select,
+[role="button"],
+a,
+h3,
+p,
+title {
+  cursor: none !important;
+}

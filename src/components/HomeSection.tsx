@@ -27,15 +27,15 @@ export const HomeSection = () => {
       {sections.map((section, index) => (
         <FadeInSection key={section.title}>
           <motion.section
-            className="space-y-1 rounded-xl overflow-hidden cursor-default"
+            className="space-y-1 rounded-xl overflow-visible cursor-default"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ 
+            animate={{
               opacity: hoveredIndex === null || hoveredIndex === index ? 1 : 0.5,
               scale: hoveredIndex === index ? 1.02 : 1
             }}
-            transition={{ 
+            transition={{
               duration: 0.3,
-              delay: index * 0.1 
+              delay: index * 0.1
             }}
           >
             <motion.div
@@ -47,8 +47,8 @@ export const HomeSection = () => {
                 transformOrigin: 'center left'
               }}
             >
-              <motion.h2 
-                className="text-lg font-semibold pt-4 cursor-default"
+              <motion.h2
+                className="text-lg font-semibold pt-4 cursor-none text-gray-900 dark:text-white"
                 variants={titleVariants}
               >
                 {section.title}
@@ -59,7 +59,7 @@ export const HomeSection = () => {
                   {section.content}
                 </div>
               ) : (
-                <motion.div 
+                <motion.div
                   className="transition-all p-4 sm:p-4 cursor-default"
                   initial={false}
                   animate={{ y: 0 }}
