@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { FadeInSection } from '../utils/FadeInSection';
 import { getCalApi } from "@calcom/embed-react";
@@ -43,26 +43,10 @@ const Contact = () => {
       });
     })();
 
-    const moveCursor = (e: MouseEvent) => {
-      const x = e.clientX - 16;
-      const y = e.clientY - 16;
-
-      cursorX.set(x);
-      cursorY.set(y);
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-    }
   }, [selectedEvent]);
 
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
-
   return (
-    <div style={{ cursor: 'none' }}>
+    <div>
       <FadeInSection>
         <motion.h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Contato
@@ -152,23 +136,6 @@ const Contact = () => {
           </div>
         </div>
       </FadeInSection>
-      <motion.div
-        className="custom-cursor"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: `20px`,
-          height: `20px`,
-          borderRadius: '50%',
-          pointerEvents: 'none',
-          zIndex: 9999,
-          x: cursorX,
-          y: cursorY,
-          mixBlendMode: 'difference',
-          backgroundColor: 'white',
-        }}
-      ></motion.div>
     </div>
 
   );

@@ -53,13 +53,13 @@ const PhotoCard = ({ image, date, location, isMobile }: PhotoCardProps) => {
         </div>
 
         {/* Back of card */}
+        {/* background now fully controlled by tailwind dark variants instead of inline style */}
         <div 
           className="absolute w-full h-full backface-hidden bg-white dark:bg-gray-800 rounded-lg p-6 rotate-y-180 flex flex-col justify-center shadow-lg"
-          style={{ backgroundColor: currentTheme.bg.secondary }}
         >
           <div className="text-center space-y-3">
-            <p className="text-sm text-gray-500 dark:text-gray-400">{date}</p>
-            <p className="font-medium">{location}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-400">{date}</p>
+            <p className="font-medium text-gray-900 dark:text-white">{location}</p>
           </div>
         </div>
       </motion.div>

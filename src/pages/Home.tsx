@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { PhotoGallery } from '../components/PhotoGallery';
 import { HomeSection } from '../components/HomeSection';
@@ -12,36 +12,17 @@ const Home = () => {
 
 
   useEffect(() => {
-    const checkMobile = () => {
+
       setIsMobile(window.innerWidth < 640);
-    };
 
-    const moveCursor = (e: MouseEvent) => {
-      const x = e.clientX - 16;
-      const y = e.clientY - 16;
-
-      cursorX.set(x);
-      cursorY.set(y);
-    }
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    window.addEventListener('mousemove', moveCursor);
-
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('mousemove', moveCursor);
-    }
   }, []);
 
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
 
   usePageTitle('Home');
 
   return (
     <>
-      <div style={{ cursor: 'none' }}>
+      <div>
         <FadeInSection>
           <section className="space-y-4">
             <motion.div
@@ -89,23 +70,6 @@ const Home = () => {
         </FadeInSection>
 
       </div>
-      <motion.div
-        className="custom-cursor"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: `20px`,
-          height: `20px`,
-          borderRadius: '50%',
-          pointerEvents: 'none',
-          zIndex: 9999,
-          x: cursorX,
-          y: cursorY,
-          mixBlendMode: 'difference',
-          backgroundColor: 'white',
-        }}
-      ></motion.div>
     </>
   );
 };
