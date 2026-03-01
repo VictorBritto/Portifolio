@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
 
 interface PhotoCardProps {
   image: string;
@@ -11,7 +10,6 @@ interface PhotoCardProps {
 
 const PhotoCard = ({ image, date, location, isMobile }: PhotoCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const { currentTheme } = useTheme();
 
   const handleMouseEnter = () => {
     if (!isMobile) {
