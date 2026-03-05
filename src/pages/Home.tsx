@@ -92,7 +92,7 @@ const Home = () => {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
             >
-              <svg className="w-8 h-8 text-gray-400 hover:text-purple-400 transition-colors" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-8 h-8 text-gray-400 hover:text-green-400 transition-colors" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
               </svg>
             </motion.div>
