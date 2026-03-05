@@ -28,7 +28,7 @@ export const theme = {
 
     // Navigation
     nav: {
-      bg: 'rgba(255, 255, 255, 0.8)',  // Navbar background with transparency
+      bg: 'rgba(255, 255, 255, 0.78)',  // Navbar background (mais translúcido para mesclar com o fundo)
       bubble: '#e1e1e3',                // Used for Spotify tab buttons and nav indicators
       text: '#4B5563',                  // Navbar text color
       textHover: '#111827',             // Navbar text hover color
@@ -64,7 +64,7 @@ export const theme = {
 
     // Navigation
     nav: {
-      bg: 'rgba(0, 0, 0, 0.8)',  // Navbar background with transparency
+      bg: 'rgba(0, 0, 0, 0.78)',  // Navbar background (mais translúcido para mesclar com o fundo)
       bubble: '#222222',          // Used for Spotify tab buttons and nav indicators
       text: '#9CA3AF',            // Navbar text color
       textHover: '#F9FAFB',       // Navbar text hover color

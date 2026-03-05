@@ -55,6 +55,32 @@
 }
 
 @layer utilities {
+  /* Gradiente animado para destaque */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .gradient-text-animated {
+    background: linear-gradient(
+      90deg,
+      #3b82f6,
+      #8b5cf6,
+      #ec4899,
+      #8b5cf6,
+      #3b82f6
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s ease infinite;
+  }
+
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -78,5 +104,46 @@
 
   .rotate-y-180 {
     transform: rotateY(180deg);
+  }
+
+  /* Background 3D: orbs flutuantes com profundidade */
+  .bg-3d {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-3d-orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(70px);
+    opacity: 0.7;
+    animation: float-3d 18s ease-in-out infinite;
+  }
+
+  .bg-3d-orb:nth-child(1) { animation-delay: 0s; }
+  .bg-3d-orb:nth-child(2) { animation-delay: -4s; }
+  .bg-3d-orb:nth-child(3) { animation-delay: -8s; }
+  .bg-3d-orb:nth-child(4) { animation-delay: -6s; }
+  .bg-3d-orb:nth-child(5) { animation-delay: -12s; }
+
+  @keyframes float-3d {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(8%, -8%) scale(1.08); }
+    50% { transform: translate(-6%, 6%) scale(0.96); }
+    75% { transform: translate(5%, 5%) scale(1.04); }
+  }
+
+  .dark .bg-3d-orb {
+    opacity: 0.55;
+  }
+
+  .bg-3d-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
