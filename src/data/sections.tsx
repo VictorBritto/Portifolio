@@ -39,7 +39,7 @@ export const sections = [
         {[
           {
             company: "Fundação Herminio Ometto",
-            date: "2026 - Atualmente",
+            date: "2022 - Atualmente",
             title: "Suporte Informatica",
             description: ["Atualmente atuo com suporte de informática, auxiliando usuários e solucionando dúvidas relacionadas ao sistema da Fundação Hermínio Ometto."],
             dotColor: "bg-blue-500"
