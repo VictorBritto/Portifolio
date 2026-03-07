@@ -12,13 +12,13 @@ export const Layout = ({ children }: LayoutProps) => {
       className="min-h-screen transition-colors duration-200 bg-3d"
       style={{ backgroundColor: currentTheme.bg.primary }}
     >
-      {/* Orbs 3D - cores diferentes para light/dark */}
+      {/* Orbs 3D - mesma paleta do nome: #1f2421, #216869, #49a078, #9cc5a1, #dce1de */}
       <div
         className="bg-3d-orb w-[min(95vmax,720px)] h-[min(95vmax,720px)] -top-[45%] -left-[22%]"
         style={{
           background: isDarkMode
-            ? 'radial-gradient(circle, rgba(126, 34, 206, 0.55) 0%, rgba(49, 46, 129, 0.25) 45%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(79, 70, 229, 0.25) 50%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(33, 104, 105, 0.5) 0%, rgba(31, 36, 33, 0.25) 45%, transparent 50%)'
+            : 'radial-gradient(circle, rgba(73, 160, 120, 0.45) 0%, rgba(33, 104, 105, 0.2) 50%, transparent 50%)',
         }}
         aria-hidden
       />
@@ -26,8 +26,8 @@ export const Layout = ({ children }: LayoutProps) => {
         className="bg-3d-orb w-[min(75vmax,560px)] h-[min(75vmax,560px)] top-[35%] -right-[12%]"
         style={{
           background: isDarkMode
-            ? 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(30, 58, 138, 0.22) 50%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(124, 58, 237, 0.2) 50%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(73, 160, 120, 0.45) 0%, rgba(33, 104, 105, 0.2) 50%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(156, 197, 161, 0.4) 0%, rgba(73, 160, 120, 0.18) 50%, transparent 70%)',
         }}
         aria-hidden
       />
@@ -35,8 +35,8 @@ export const Layout = ({ children }: LayoutProps) => {
         className="bg-3d-orb w-[min(65vmax,440px)] h-[min(65vmax,440px)] top-[65%] left-[8%]"
         style={{
           background: isDarkMode
-            ? 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(131, 24, 67, 0.18) 50%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(219, 39, 119, 0.15) 50%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(156, 197, 161, 0.35) 0%, rgba(73, 160, 120, 0.15) 50%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(220, 225, 222, 0.35) 0%, rgba(156, 197, 161, 0.15) 50%, transparent 70%)',
         }}
         aria-hidden
       />
@@ -44,8 +44,8 @@ export const Layout = ({ children }: LayoutProps) => {
         className="bg-3d-orb w-[min(55vmax,380px)] h-[min(55vmax,380px)] top-[10%] right-[22%]"
         style={{
           background: isDarkMode
-            ? 'radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(88, 28, 135, 0.15) 55%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(37, 99, 235, 0.15) 55%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(33, 104, 105, 0.45) 0%, rgba(31, 36, 33, 0.15) 55%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(33, 104, 105, 0.4) 0%, rgba(73, 160, 120, 0.15) 55%, transparent 70%)',
         }}
         aria-hidden
       />
@@ -53,8 +53,8 @@ export const Layout = ({ children }: LayoutProps) => {
         className="bg-3d-orb w-[min(50vmax,360px)] h-[min(50vmax,360px)] bottom-[15%] right-[8%]"
         style={{
           background: isDarkMode
-            ? 'radial-gradient(circle, rgba(34, 211, 238, 0.35) 0%, rgba(21, 94, 117, 0.12) 55%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, rgba(6, 182, 212, 0.12) 55%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(73, 160, 120, 0.4) 0%, rgba(33, 104, 105, 0.12) 55%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(156, 197, 161, 0.3) 0%, rgba(73, 160, 120, 0.12) 55%, transparent 70%)',
         }}
         aria-hidden
       />
