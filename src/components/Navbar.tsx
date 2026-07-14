@@ -1,92 +1,81 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 import { useState, useEffect } from 'react';
-import { theme } from '../styles/theme';
 import Icon from '../assets/icon/transparent.png';
 
 const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
-  const currentTheme = isDarkMode ? theme.dark : theme.light;
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setActiveTab(location.pathname);
   }, [location]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const navItems = [
-    { path: '/', label: 'Inicio' },
+    { path: '/', label: 'Início' },
     { path: '/contact', label: 'Contato' },
   ];
 
   return (
     <header
-      className="sticky top-0 z-50 w-full backdrop-blur-md bg-transparent"
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-2xl liquid-glass ${
+        scrolled ? 'w-[92%] max-w-3xl shadow-2xl shadow-black/40' : 'w-[85%] max-w-2xl'
+      }`}
     >
-      <nav className="container-width py-4">
+      <nav className="px-5 py-3">
         <div className="flex items-center justify-between">
-          {/* Added Logo/Icon */}
-          <Link to="/" className="flex items-center space-x-2">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
             <img
               src={Icon}
               alt="Victor Gabriel"
-              className="w-14 h-14"
+              className="w-10 h-10 rounded-xl transition-transform duration-300 group-hover:scale-110"
             />
           </Link>
 
-          <div className="flex items-center space-x-1">
+          {/* Nav Links */}
+          <div className="flex items-center gap-1 relative">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 text-sm rounded-lg transition-colors relative ${activeTab === item.path
-                  ? 'text-gray-900 dark:text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                  }`}
+                className={`relative px-4 py-2 text-sm font-medium rounded-xl transition-colors duration-300 ${
+                  activeTab === item.path
+                    ? 'text-white'
+                    : 'text-gray-400 hover:text-white'
+                }`}
               >
                 {item.label}
                 {activeTab === item.path && (
                   <motion.div
-                    className="absolute inset-0 rounded-lg -z-10"
-                    style={{ backgroundColor: currentTheme.nav.bubble }}
-                    layoutId="bubble"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    className="absolute inset-0 rounded-xl -z-10 bg-white/10"
+                    layoutId="navBubble"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
               </Link>
             ))}
           </div>
-          <motion.button
-            onClick={toggleTheme}
-            className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors rounded-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {isDarkMode ? (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            )}
-          </motion.button>
+
+          {/* Status Indicator — like a green "online" dot */}
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            </span>
+            <span className="text-xs text-gray-500 font-mono hidden sm:inline">available</span>
+          </div>
         </div>
       </nav>
     </header>
   );
 };
 
-export default Navbar; 
+export default Navbar;

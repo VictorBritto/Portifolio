@@ -1,76 +1,32 @@
 import { motion } from 'framer-motion';
 import { sections } from '../data/sections';
-import { sectionVariants, titleVariants } from '../utils/animations';
-import { useState } from 'react';
-import { useInView } from '../hooks/useInView';
-
-const FadeInSection = ({ children }: { children: React.ReactNode }) => {
-  const { ref, isInView } = useInView();
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 1 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 export const HomeSection = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <div className="space-y-6">
+    <div className="space-y-16 py-8">
       {sections.map((section, index) => (
-        <FadeInSection key={section.title}>
-          <motion.section
-            className="space-y-1 rounded-xl overflow-visible cursor-default"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: hoveredIndex === null || hoveredIndex === index ? 1 : 0.5,
-              scale: hoveredIndex === index ? 1.02 : 1
-            }}
-            transition={{
-              duration: 0.3,
-              delay: index * 0.1
-            }}
-          >
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-[130px_1fr] gap-1 sm:gap-4 cursor-default"
-              variants={sectionVariants}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              style={{
-                transformOrigin: 'center left'
-              }}
-            >
-              <motion.h2
-                className="text-lg font-semibold pt-4 cursor-none text-gray-900 dark:text-white"
-                variants={titleVariants}
-              >
-                {section.title}
-              </motion.h2>
-              {section.title === "WORK EXPERIENCE" ? (
-                <div className="relative pl-4 pt-4">
-                  <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700" />
-                  {section.content}
-                </div>
-              ) : (
-                <motion.div
-                  className="transition-all p-4 sm:p-4 cursor-default"
-                  initial={false}
-                  animate={{ y: 0 }}
-                >
-                  {section.content}
-                </motion.div>
-              )}
-            </motion.div>
-          </motion.section>
-        </FadeInSection>
+        <motion.section
+          key={section.title}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: index * 0.1, ease: 'easeOut' }}
+          className="space-y-6"
+        >
+          {/* Section header */}
+          <div className="flex items-center gap-4">
+            <p className="font-mono text-xs text-violet-400 tracking-wider uppercase whitespace-nowrap">
+              {`// ${section.title.toLowerCase()}`}
+            </p>
+            <div className="glow-line flex-1" />
+          </div>
+
+          {/* Section content */}
+          <div className="pl-0 sm:pl-4">
+            {section.content}
+          </div>
+        </motion.section>
       ))}
     </div>
   );
-}; 
+};

@@ -42,18 +42,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mb-5">
+    <footer className="py-12 mt-16">
+      <div className="glow-line mb-10 mx-auto w-1/2" />
       <div className="container-width">
-        <div className="flex flex-col items-center justify-center space-y-3">
-          <div className="flex flex-wrap items-center justify-center gap-6 px-4">
+        <div className="flex flex-col items-center justify-center space-y-5">
+          <div className="flex flex-wrap items-center justify-center gap-5">
             {socialLinks.map((social) => (
               <motion.a
                 key={social.name}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                whileHover={{ scale: 1.1 }}
+                className="text-gray-600 hover:text-white transition-colors duration-300 p-2 rounded-xl hover:bg-white/5"
+                whileHover={{ scale: 1.15, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={social.name}
               >
@@ -61,8 +62,8 @@ const Footer = () => {
               </motion.a>
             ))}
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 text-center px-4">
-            © {new Date().getFullYear()} Victor Gabriel. Todos os direitos reservados.
+          <p className="text-xs text-gray-600 text-center font-mono">
+            © {new Date().getFullYear()} Victor Gabriel — Built with React + Three.js
           </p>
         </div>
       </div>
@@ -70,4 +71,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
