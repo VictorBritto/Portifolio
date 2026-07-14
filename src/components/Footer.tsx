@@ -63,7 +63,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-xs text-gray-600 text-center font-mono">
-            © {new Date().getFullYear()} Victor Gabriel — Built with React + Three.js
+            © {new Date().getFullYear()} Victor Gabriel
           </p>
         </div>
       </div>

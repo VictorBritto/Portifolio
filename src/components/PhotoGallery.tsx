@@ -64,11 +64,6 @@ export const PhotoGallery = ({}: PhotoGalleryProps) => {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-60" />
               
-              {/* Badge */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs text-gray-300 font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                dev.victor
-              </div>
             </div>
           </div>
         </motion.div>

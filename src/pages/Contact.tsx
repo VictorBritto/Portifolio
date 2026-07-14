@@ -134,27 +134,6 @@ const Contact = () => {
         ))}
       </motion.div>
 
-      {/* Bottom CTA */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="text-center mt-16"
-      >
-        <div className="glow-line w-1/3 mx-auto mb-8" />
-        <p className="text-gray-600 text-sm font-mono">
-          {'// prefere email? sem problemas 👇'}
-        </p>
-        <a
-          href="mailto:victor.gbiel2003@gmail.com"
-          className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-all duration-300 hover:scale-105"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          Enviar Email
-        </a>
-      </motion.div>
     </div>
   );
 };
